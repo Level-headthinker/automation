@@ -22,7 +22,7 @@ export function PageHero({
   return (
     <section
       className={cn(
-        "relative pt-32 pb-20 overflow-hidden",
+        "relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 lg:pb-20 overflow-hidden",
         className
       )}
     >
@@ -50,7 +50,7 @@ export function PageHero({
           {title}
         </h1>
         {description && (
-          <p className="text-lg sm:text-xl text-fg-muted max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-fg-muted max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed">
             {description}
           </p>
         )}
