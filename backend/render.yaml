@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: tapzero-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    plan: free
+    envVars:
+      - key: CORS_ORIGINS
+        value: https://tapzero.ai,https://www.tapzero.ai
+      - key: MAIL_EMAIL
+        sync: false
+      - key: MAIL_PASSWORD
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ENVIRONMENT
+        value: production

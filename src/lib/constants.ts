@@ -19,12 +19,14 @@ export const BRAND = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: "Products", href: "#products" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Industries", href: "#industries" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "About", href: "#about" },
+  { label: "Products", href: "/products" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Industries", href: "/#industries" },
+  { label: "Blog", href: "/blog" },
+  { label: "About", href: "/about" },
 ] as const;
+
+export const SITE_URL = "https://tapzero.ai";
 
 // ── Hero ────────────────────────────────────────────────────
 
@@ -410,19 +412,19 @@ export const INDUSTRIES_DROPDOWN = [
 
 export const FOOTER_LINKS = {
   Products: [
-    { label: "ClinicBot", href: "#products" },
-    { label: "RestaurantBot", href: "#products" },
-    { label: "EstateAI", href: "#products" },
-    { label: "SupportDesk AI", href: "#products" },
+    { label: "ClinicBot", href: "/products/clinicbot" },
+    { label: "RestaurantBot", href: "/products" },
+    { label: "EstateAI", href: "/products" },
+    { label: "SupportDesk AI", href: "/products" },
   ],
   Company: [
-    { label: "About", href: "#about" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Pricing", href: "#pricing" },
-    { label: "Contact", href: "#contact" },
+    { label: "About", href: "/about" },
+    { label: "How It Works", href: "/#how-it-works" },
+    { label: "Pricing", href: "/#pricing" },
+    { label: "Contact", href: "/#contact" },
   ],
   Resources: [
-    { label: "Blog", href: "#" },
+    { label: "Blog", href: "/blog" },
     { label: "Documentation", href: "#" },
     { label: "Privacy Policy", href: "#" },
     { label: "Terms of Service", href: "#" },

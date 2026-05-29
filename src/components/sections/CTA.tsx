@@ -135,7 +135,7 @@ export function CTA() {
             initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <SectionLabel className="mb-6">{CTA_SECTION.badge}</SectionLabel>
             <h2
@@ -191,7 +191,7 @@ export function CTA() {
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <div className="glass-card rounded-2xl border border-border p-6 sm:p-8">
               {status === "success" ? (

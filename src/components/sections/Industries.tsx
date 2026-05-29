@@ -18,7 +18,7 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 export function Industries() {
-  const [active, setActive] = useState(INDUSTRIES[0].id);
+  const [active, setActive] = useState<string>(INDUSTRIES[0].id);
   const activeIndustry = INDUSTRIES.find((i) => i.id === active)!;
 
   return (
@@ -75,7 +75,7 @@ export function Industries() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
             className="glass-card rounded-2xl border border-border p-8 lg:p-12 grid lg:grid-cols-2 gap-10 items-center"
           >
             {/* Text */}

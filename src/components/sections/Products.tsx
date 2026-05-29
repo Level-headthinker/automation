@@ -75,7 +75,7 @@ export function Products() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ delay: i * 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ delay: i * 0.1, duration: 0.5, ease: "easeOut" }}
                 className={cn(
                   "glass-card rounded-2xl border border-border p-6 sm:p-8 relative overflow-hidden",
                   "hover:border-border-strong transition-all duration-300 group",
