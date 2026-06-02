@@ -184,7 +184,7 @@ export function Features() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: i * 0.07, duration: 0.5, ease: "easeOut" }}
                 className={cn(
-                  "spotlight-card glass-card rounded-2xl border border-border p-5 sm:p-6",
+                  "glow-card spotlight-card glass-card rounded-2xl border border-border p-5 sm:p-6",
                   "hover:border-border-strong transition-all duration-300 group overflow-hidden",
                   feature.size === "wide" && "bento-wide",
                   feature.size === "tall" && "bento-tall",

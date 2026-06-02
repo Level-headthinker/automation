@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Send, CheckCircle2, ArrowRight } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
+import { ParticleField } from "@/components/ui/ParticleField";
 import { CTA_SECTION, INDUSTRIES_DROPDOWN, BRAND } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -59,6 +60,7 @@ export function CTA() {
   return (
     <section id="contact" className="py-20 sm:py-28 relative overflow-hidden">
       {/* BG glows */}
+      <ParticleField count={22} zone="full" className="opacity-50" />
       <div aria-hidden className="absolute top-0 left-1/4 w-96 h-96 rounded-full pointer-events-none"
         style={{ background: "radial-gradient(ellipse at center, rgba(124,58,237,0.1), transparent 70%)", filter: "blur(80px)" }} />
       <div aria-hidden className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full pointer-events-none"

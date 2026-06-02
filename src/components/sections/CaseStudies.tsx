@@ -6,13 +6,15 @@ import Link from "next/link";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { GradientText } from "@/components/ui/GradientText";
 import { Badge } from "@/components/ui/Badge";
+import { ParticleField } from "@/components/ui/ParticleField";
 import { CASE_STUDIES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function CaseStudies() {
   return (
-    <section className="py-20 sm:py-28 bg-surface">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 sm:py-28 bg-surface relative overflow-hidden">
+      <ParticleField count={18} zone="full" className="opacity-40" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mb-12">
@@ -45,7 +47,7 @@ export function CaseStudies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ delay: i * 0.12, duration: 0.5, ease: "easeOut" }}
-              className="glass-card-hover rounded-2xl border border-border overflow-hidden group cursor-pointer"
+              className="glow-card glass-card-hover rounded-2xl border border-border overflow-hidden group cursor-pointer"
             >
               {/* Gradient header */}
               <div className="relative h-40 overflow-hidden"

@@ -101,8 +101,8 @@ export function Products() {
             className={cn(
               "glass-card rounded-2xl border overflow-hidden",
               product.status === "live"
-                ? "border-violet/30 shadow-[0_0_60px_rgba(124,58,237,0.12)]"
-                : "border-border"
+                ? "border-violet/30 shadow-[0_0_60px_rgba(124,58,237,0.12)] electric-border"
+                : "glow-card border-border"
             )}
           >
             <div className="grid lg:grid-cols-5">

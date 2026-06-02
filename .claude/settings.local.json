@@ -3,7 +3,8 @@
     "allow": [
       "PowerShell(Get-Process -Name \"node\" -ErrorAction SilentlyContinue)",
       "PowerShell(New-Item -ItemType Directory -Force -Path \"r:\\\\agencywebsite\\\\content\\\\blog\")",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "WebFetch(domain:www.antimatterai.com)"
     ]
   }
 }

@@ -6,6 +6,8 @@ import { ArrowRight, Zap, CheckCircle, Calendar, MessageCircle, Users } from "lu
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { ParticleField } from "@/components/ui/ParticleField";
+import { LightRays } from "@/components/ui/LightRays";
 import { HERO } from "@/lib/constants";
 
 /* ── word-by-word animation helper ── */
@@ -64,21 +66,29 @@ export function Hero() {
     <section ref={containerRef} className="relative min-h-screen flex items-center overflow-hidden">
 
       {/* ── BACKGROUND LAYERS ── */}
+
+      {/* 1. Light rays — volumetric burst from top center */}
+      <LightRays intensity={0.9} />
+
+      {/* 2. Animated gradient orbs */}
       <motion.div className="absolute inset-0 pointer-events-none" style={{ y: bgY }}>
-        {/* Deep gradient orbs */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full animate-pulse-glow"
-          style={{ background: "radial-gradient(ellipse at center, rgba(124,58,237,0.15) 0%, transparent 65%)", filter: "blur(60px)" }} />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full animate-float-b"
-          style={{ background: "radial-gradient(ellipse at center, rgba(6,182,212,0.1) 0%, transparent 70%)", filter: "blur(80px)" }} />
-        <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full"
-          style={{ background: "radial-gradient(ellipse at center, rgba(124,58,237,0.08) 0%, transparent 70%)", filter: "blur(60px)" }} />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full animate-pulse-glow"
+          style={{ background: "radial-gradient(ellipse at center, rgba(124,58,237,0.18) 0%, transparent 60%)", filter: "blur(70px)" }} />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full animate-float-b"
+          style={{ background: "radial-gradient(ellipse at center, rgba(6,182,212,0.12) 0%, transparent 65%)", filter: "blur(90px)" }} />
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full animate-float-a"
+          style={{ background: "radial-gradient(ellipse at center, rgba(124,58,237,0.1) 0%, transparent 70%)", filter: "blur(80px)" }} />
       </motion.div>
 
-      {/* Grid pattern */}
-      <div className="absolute inset-0 dot-pattern opacity-[0.35] pointer-events-none" />
+      {/* 3. Dot grid */}
+      <div className="absolute inset-0 dot-pattern opacity-[0.3] pointer-events-none" />
 
-      {/* Horizontal beam */}
-      <div className="beam top-1/2 opacity-40" />
+      {/* 4. Particle field — 50 floating particles */}
+      <ParticleField count={52} zone="hero" />
+
+      {/* 5. Horizontal beam sweep */}
+      <div className="beam top-1/2 opacity-30" />
+      <div className="beam top-1/3 opacity-20" style={{ animationDelay: "2s" }} />
 
       {/* ── CONTENT ── */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16">

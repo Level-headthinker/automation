@@ -36,7 +36,7 @@ export function Testimonials() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: i * 0.12, duration: 0.5, ease: "easeOut" }}
               whileHover={{ y: -4 }}
-              className="glass-card rounded-2xl border border-border p-6 sm:p-7 flex flex-col relative overflow-hidden group"
+              className="glow-card glass-card rounded-2xl border border-border p-6 sm:p-7 flex flex-col relative overflow-hidden group"
             >
               {/* Glow on hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
