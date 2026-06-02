@@ -1,61 +1,44 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Sparkles } from "lucide-react";
+import { Check, Sparkles, ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { GradientText } from "@/components/ui/GradientText";
-import { Button } from "@/components/ui/Button";
 import { PRICING_PLANS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function Pricing() {
   return (
-    <section id="pricing" className="py-24 sm:py-32 relative overflow-hidden">
-      {/* Background glow */}
-      <div
-        aria-hidden
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(124,58,237,0.05), transparent 70%)",
-        }}
-      />
+    <section id="pricing" className="py-20 sm:py-28 relative overflow-hidden">
+      {/* BG */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(124,58,237,0.05), transparent 70%)" }} />
+      <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header */}
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            className="flex justify-center mb-4"
-          >
+        <div className="text-center mb-14">
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} className="flex justify-center mb-4">
             <SectionLabel>Pricing</SectionLabel>
           </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ delay: 0.1 }}
+          <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ delay: 0.1 }}
             className="font-display font-bold text-fg mb-4"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
-          >
-            Simple, <GradientText>Transparent Pricing</GradientText>
+            style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}>
+            <GradientText>Transparent</GradientText> Pricing. No Surprises.
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ delay: 0.15 }}
-            className="text-lg text-fg-muted max-w-xl mx-auto"
-          >
-            Start with what you need. Scale when you grow. Cancel anytime — no
-            lock-in, no hidden fees.
+          <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }} transition={{ delay: 0.15 }}
+            className="text-base sm:text-lg text-fg-muted max-w-xl mx-auto">
+            Start free for 14 days. No card required. Cancel anytime.
           </motion.p>
         </div>
 
-        {/* Plans */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        {/* Plans grid */}
+        <div className="grid md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8 items-stretch">
           {PRICING_PLANS.map((plan, i) => (
             <motion.div
               key={plan.name}
@@ -63,64 +46,55 @@ export function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ delay: i * 0.12, duration: 0.5, ease: "easeOut" }}
+              whileHover={{ y: plan.highlighted ? -6 : -3 }}
               className={cn(
-                "relative rounded-2xl border flex flex-col",
+                "relative rounded-2xl border flex flex-col overflow-hidden",
                 plan.highlighted
-                  ? "border-violet bg-violet-muted ring-1 ring-violet/30 shadow-[0_0_40px_rgba(124,58,237,0.15)]"
+                  ? "border-violet/40 shadow-[0_0_60px_rgba(124,58,237,0.2)] bg-violet-muted"
                   : "glass-card border-border"
               )}
             >
+              {/* Highlighted gradient top bar */}
+              {plan.highlighted && (
+                <div className="h-1 w-full animated-gradient" />
+              )}
+
               {/* Popular badge */}
               {plan.highlighted && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2">
-                  <div
-                    className="flex items-center gap-1.5 px-4 py-1 rounded-full text-xs font-bold text-white"
-                    style={{ background: "var(--gradient)" }}
-                  >
+                <div className="absolute top-4 right-4">
+                  <div className="flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold text-white"
+                    style={{ background: "var(--gradient)" }}>
                     <Sparkles className="w-3 h-3" />
-                    Most Popular
+                    Popular
                   </div>
                 </div>
               )}
 
               <div className="p-6 sm:p-8 flex flex-col flex-1">
                 {/* Plan name */}
-                <div className="mb-6">
-                  <h3 className="font-display font-bold text-xl text-fg mb-1">
-                    {plan.name}
-                  </h3>
-                  <p className="text-sm text-fg-muted">{plan.description}</p>
-                </div>
+                <h3 className="font-display font-bold text-xl text-fg mb-1">{plan.name}</h3>
+                <p className="text-sm text-fg-muted mb-6">{plan.description}</p>
 
                 {/* Price */}
-                <div className="mb-8">
-                  <div className="flex items-end gap-2">
+                <div className="mb-7 pb-7 border-b border-border">
+                  <div className="flex items-end gap-1.5">
                     {plan.currency && (
-                      <span className="text-sm font-semibold text-fg-muted mb-1">
-                        {plan.currency}
-                      </span>
+                      <span className="text-sm font-semibold text-fg-subtle self-end mb-0.5">{plan.currency}</span>
                     )}
-                    <span
-                      className={cn(
-                        "font-display font-bold leading-none",
-                        plan.price === "Custom"
-                          ? "text-3xl text-fg"
-                          : "text-4xl gradient-text"
-                      )}
-                    >
+                    <span className={cn(
+                      "font-display font-bold leading-none",
+                      plan.price === "Custom" ? "text-3xl text-fg" : "text-4xl sm:text-5xl gradient-text"
+                    )}>
                       {plan.price}
                     </span>
                   </div>
-                  <p className="text-xs text-fg-subtle mt-1">{plan.period}</p>
+                  <p className="text-xs text-fg-subtle mt-1.5">{plan.period}</p>
                 </div>
 
                 {/* Features */}
                 <ul className="space-y-3 flex-1 mb-8">
                   {plan.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-start gap-3 text-sm text-fg-muted"
-                    >
+                    <li key={feature} className="flex items-start gap-2.5 text-sm text-fg-muted">
                       <div className="w-5 h-5 rounded-full bg-violet flex items-center justify-center flex-shrink-0 mt-0.5">
                         <Check className="w-3 h-3 text-white" />
                       </div>
@@ -130,32 +104,29 @@ export function Pricing() {
                 </ul>
 
                 {/* CTA */}
-                <Button
-                  variant={plan.highlighted ? "primary" : "secondary"}
-                  className="w-full"
-                  onClick={() =>
-                    document
-                      .getElementById("contact")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }
+                <Link
+                  href="/#contact"
+                  className={cn(
+                    "w-full flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold",
+                    "transition-all duration-200 group",
+                    plan.highlighted
+                      ? "btn-primary text-white"
+                      : "border border-border text-fg hover:border-border-strong hover:bg-elevated"
+                  )}
                 >
                   {plan.cta}
-                </Button>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-150" />
+                </Link>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Note */}
         <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
           className="text-center text-sm text-fg-subtle mt-8"
         >
-          All plans include a 14-day free trial. No credit card required to start.
-          Pricing shown for ClinicBot — other products priced similarly.
+          14-day free trial included. Pricing shown for ClinicBot — other products priced similarly.
         </motion.p>
       </div>
     </section>

@@ -408,6 +408,92 @@ export const INDUSTRIES_DROPDOWN = [
   "Other",
 ] as const;
 
+// ── Case Studies ────────────────────────────────────────────
+
+export const CASE_STUDIES = [
+  {
+    id: "city-clinic",
+    title: "City Clinic, Karachi",
+    industry: "Healthcare",
+    tag: "ClinicBot",
+    tagColor: "violet",
+    result: "3× more appointments",
+    metric: "68",
+    metricLabel: "appointments/day",
+    description:
+      "A 3-doctor GP clinic in Karachi was missing 40% of patient calls daily. After deploying ClinicBot on WhatsApp and web, same-day booking rose 3× and no-shows dropped by 38%.",
+    gradient: "from-violet-600 to-purple-800",
+  },
+  {
+    id: "medcare-lahore",
+    title: "MedCare Specialist Centre, Lahore",
+    industry: "Multi-Branch Clinic",
+    tag: "ClinicBot Pro",
+    tagColor: "cyan",
+    result: "5 branches unified",
+    metric: "92%",
+    metricLabel: "patient satisfaction",
+    description:
+      "A 5-branch specialist centre consolidated all appointment management into one Tapzero dashboard. Staff hours spent on admin dropped by 60% in the first month.",
+    gradient: "from-cyan-600 to-blue-800",
+  },
+  {
+    id: "diaspora-clinic",
+    title: "Al-Shifa Clinic, Hertfordshire UK",
+    industry: "Diaspora Healthcare",
+    tag: "ClinicBot International",
+    tagColor: "violet",
+    result: "24/7 multilingual AI",
+    metric: "0",
+    metricLabel: "missed messages",
+    description:
+      "A UK-based Pakistani diaspora clinic needed Urdu and English support. ClinicBot handled both languages seamlessly, capturing every patient enquiry including out-of-hours.",
+    gradient: "from-violet-500 to-cyan-600",
+  },
+] as const;
+
+// ── Testimonials ─────────────────────────────────────────────
+
+export const TESTIMONIALS = [
+  {
+    quote:
+      "Before Tapzero, I was personally answering WhatsApp messages at 11pm. Now ClinicBot handles everything — bookings, reminders, follow-ups. I just open the dashboard in the morning.",
+    name: "Dr. Ayesha Malik",
+    role: "GP, City Clinic Karachi",
+    initials: "AM",
+    rating: 5,
+    color: "violet",
+  },
+  {
+    quote:
+      "The Roman Urdu support is what sold me. Our patients write exactly the way they talk. ClinicBot understands them instantly and responds naturally. No other system does this.",
+    name: "Dr. Usman Tariq",
+    role: "Orthopaedic Specialist, Lahore",
+    initials: "UT",
+    rating: 5,
+    color: "cyan",
+  },
+  {
+    quote:
+      "Setup was 4 days. The team handled everything — WhatsApp API, website widget, staff training. We went live before I expected to. ROI was visible in the first week.",
+    name: "Dr. Sara Ahmed",
+    role: "Dermatologist, Islamabad",
+    initials: "SA",
+    rating: 5,
+    color: "violet",
+  },
+] as const;
+
+// ── Marquee Items ─────────────────────────────────────────────
+
+export const MARQUEE_ITEMS = [
+  "GP Clinics", "Specialist Centres", "Dental Practices",
+  "Physiotherapy", "Dermatology", "Paediatrics",
+  "Gynaecology", "Eye Clinics", "Cardiology",
+  "Pharmacies", "Diagnostic Labs", "Rehabilitation",
+  "Multi-Branch Hospitals", "Diaspora Clinics",
+] as const;
+
 // ── Footer ──────────────────────────────────────────────────
 
 export const FOOTER_LINKS = {

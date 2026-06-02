@@ -1,239 +1,323 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
-import { ArrowRight, Play } from "lucide-react";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Zap, CheckCircle, Calendar, MessageCircle, Users } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { GradientText } from "@/components/ui/GradientText";
 import { HERO } from "@/lib/constants";
 
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: "easeOut" },
-  }),
-};
+/* ── word-by-word animation helper ── */
+function AnimatedHeadline({ text, className, delay = 0 }: {
+  text: string; className?: string; delay?: number;
+}) {
+  const words = text.split(" ");
+  return (
+    <span className={className}>
+      {words.map((word, i) => (
+        <motion.span
+          key={i}
+          className="inline-block mr-[0.25em]"
+          initial={{ opacity: 0, y: 28, filter: "blur(8px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ delay: delay + i * 0.07, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {word}
+        </motion.span>
+      ))}
+    </span>
+  );
+}
+
+/* ── floating notification badge ── */
+function FloatBadge({ icon: Icon, text, color, className, delay = 0 }: {
+  icon: React.ElementType; text: string; color: string;
+  className?: string; delay?: number;
+}) {
+  return (
+    <motion.div
+      className={`absolute glass-card rounded-xl border border-border px-3 py-2 flex items-center gap-2 shadow-md z-20 ${className}`}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ delay, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div
+        className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+        style={{ background: color === "violet" ? "var(--violet)" : color === "cyan" ? "var(--cyan)" : "#10b981" }}
+      >
+        <Icon className="w-2.5 h-2.5 text-white" />
+      </div>
+      <span className="text-xs font-semibold text-fg whitespace-nowrap">{text}</span>
+    </motion.div>
+  );
+}
 
 export function Hero() {
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start start", "end start"] });
+  const dashboardY = useTransform(scrollYProgress, [0, 1], [0, 60]);
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, -40]);
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background layers */}
-      <div className="absolute inset-0 grid-pattern opacity-40" />
+    <section ref={containerRef} className="relative min-h-screen flex items-center overflow-hidden">
 
-      {/* Gradient glow orbs */}
-      <div
-        aria-hidden
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full animate-pulse-glow pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, rgba(124,58,237,0.18) 0%, transparent 70%)",
-          filter: "blur(40px)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, rgba(6,182,212,0.12) 0%, transparent 70%)",
-          filter: "blur(60px)",
-          animationDelay: "1.5s",
-        }}
-      />
+      {/* ── BACKGROUND LAYERS ── */}
+      <motion.div className="absolute inset-0 pointer-events-none" style={{ y: bgY }}>
+        {/* Deep gradient orbs */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full animate-pulse-glow"
+          style={{ background: "radial-gradient(ellipse at center, rgba(124,58,237,0.15) 0%, transparent 65%)", filter: "blur(60px)" }} />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full animate-float-b"
+          style={{ background: "radial-gradient(ellipse at center, rgba(6,182,212,0.1) 0%, transparent 70%)", filter: "blur(80px)" }} />
+        <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full"
+          style={{ background: "radial-gradient(ellipse at center, rgba(124,58,237,0.08) 0%, transparent 70%)", filter: "blur(60px)" }} />
+      </motion.div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 text-center">
-        {/* Badge */}
-        <motion.div
-          custom={0}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="flex justify-center mb-8"
-        >
-          <Badge variant="violet" dot size="md">
-            {HERO.badge}
-          </Badge>
-        </motion.div>
+      {/* Grid pattern */}
+      <div className="absolute inset-0 dot-pattern opacity-[0.35] pointer-events-none" />
 
-        {/* Headline */}
-        <motion.div
-          custom={1}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="mb-6"
-        >
-          <h1
-            className="font-display font-bold tracking-tight leading-[1.1]"
-            style={{ fontSize: "clamp(3rem, 8vw, 6rem)" }}
+      {/* Horizontal beam */}
+      <div className="beam top-1/2 opacity-40" />
+
+      {/* ── CONTENT ── */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+          {/* LEFT — Copy */}
+          <motion.div style={{ y: contentY }}>
+            {/* Badge */}
+            <motion.div
+              className="mb-7"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Badge variant="violet" dot size="md">
+                {HERO.badge}
+              </Badge>
+            </motion.div>
+
+            {/* Headline */}
+            <h1 className="font-display font-bold leading-[1.08] tracking-tight mb-6"
+              style={{ fontSize: "clamp(2.8rem, 6vw, 5.5rem)" }}>
+              <AnimatedHeadline text={HERO.headline[0]} className="block text-fg" delay={0.1} />
+              <AnimatedHeadline text={HERO.headline[1]} className="block gradient-text" delay={0.25} />
+            </h1>
+
+            {/* Subheadline */}
+            <motion.p
+              className="text-base sm:text-lg text-fg-muted leading-relaxed mb-8 max-w-lg"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+            >
+              {HERO.subheadline}
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-3 mb-8"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+            >
+              <Button size="lg" asChild className="group w-full sm:w-auto">
+                <Link href="/#contact">
+                  {HERO.cta_primary.label}
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                </Link>
+              </Button>
+              <Button size="lg" variant="secondary" asChild className="w-full sm:w-auto">
+                <Link href="#products">{HERO.cta_secondary.label}</Link>
+              </Button>
+            </motion.div>
+
+            {/* Trust note */}
+            <motion.p
+              className="text-xs text-fg-subtle"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.75 }}
+            >
+              {HERO.trust_note}
+            </motion.p>
+
+            {/* Quick stats row */}
+            <motion.div
+              className="flex flex-wrap gap-5 mt-8 pt-8 border-t border-border"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.85 }}
+            >
+              {[
+                { v: "500+", l: "Appointments automated" },
+                { v: "24/7", l: "AI availability" },
+                { v: "5 min", l: "Setup time" },
+              ].map((s) => (
+                <div key={s.l}>
+                  <div className="font-display font-bold text-xl gradient-text">{s.v}</div>
+                  <div className="text-xs text-fg-subtle">{s.l}</div>
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* RIGHT — Dashboard Visual */}
+          <motion.div
+            className="relative hidden lg:block"
+            style={{ y: dashboardY }}
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <span className="block text-fg">{HERO.headline[0]}</span>
-            <GradientText className="block">
-              {HERO.headline[1]}
-            </GradientText>
-          </h1>
-        </motion.div>
+            {/* Glow behind card */}
+            <div className="absolute inset-0 rounded-3xl pointer-events-none"
+              style={{ background: "radial-gradient(ellipse 80% 50% at 50% 60%, rgba(124,58,237,0.25), transparent)", filter: "blur(30px)", transform: "translateY(16px)" }} />
 
-        {/* Subheadline */}
-        <motion.p
-          custom={2}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="text-lg sm:text-xl text-fg-muted max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          {HERO.subheadline}
-        </motion.p>
-
-        {/* CTAs */}
-        <motion.div
-          custom={3}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
-        >
-          <Button
-            size="lg"
-            onClick={() =>
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="group"
-          >
-            {HERO.cta_primary.label}
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform duration-150" />
-          </Button>
-          <Button
-            size="lg"
-            variant="secondary"
-            onClick={() =>
-              document
-                .getElementById("products")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="group"
-          >
-            <Play className="w-4 h-4 text-violet" />
-            {HERO.cta_secondary.label}
-          </Button>
-        </motion.div>
-
-        {/* Trust note */}
-        <motion.p
-          custom={4}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="text-sm text-fg-subtle"
-        >
-          {HERO.trust_note}
-        </motion.p>
-
-        {/* Dashboard Mockup */}
-        <motion.div
-          custom={5}
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          className="mt-16 relative max-w-4xl mx-auto animate-float"
-        >
-          {/* Glow behind mockup */}
-          <div
-            aria-hidden
-            className="absolute inset-0 rounded-2xl pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(ellipse 60% 40% at 50% 100%, rgba(124,58,237,0.2), transparent)",
-              filter: "blur(20px)",
-              transform: "translateY(20px)",
-            }}
-          />
-
-          {/* Mockup card */}
-          <div className="relative glass-card rounded-2xl border border-border shadow-md overflow-hidden">
-            {/* Fake browser chrome */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-elevated">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-400" />
-                <div className="w-3 h-3 rounded-full bg-yellow-400" />
-                <div className="w-3 h-3 rounded-full bg-green-400" />
+            {/* Main dashboard card */}
+            <div className="relative glass-card rounded-2xl border border-border overflow-hidden shadow-[0_32px_80px_rgba(0,0,0,0.3)] animate-float-a">
+              {/* Chrome bar */}
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-elevated">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                </div>
+                <div className="flex-1 mx-3">
+                  <div className="bg-bg border border-border rounded-md px-3 py-1 text-xs text-fg-subtle font-mono">
+                    app.tapzero.ai/dashboard
+                  </div>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-xs text-fg-subtle">Live</span>
+                </div>
               </div>
-              <div className="flex-1 mx-4">
-                <div className="bg-surface border border-border rounded-md px-3 py-1 text-xs text-fg-subtle font-mono">
-                  app.tapzero.ai/dashboard
+
+              {/* Dashboard content */}
+              <div className="p-5 bg-bg">
+                {/* Stats row */}
+                <div className="grid grid-cols-4 gap-3 mb-5">
+                  {[
+                    { v: "24", l: "Today", c: "violet" },
+                    { v: "8", l: "Leads", c: "cyan" },
+                    { v: "19", l: "Confirmed", c: "emerald" },
+                    { v: "3", l: "Pending", c: "amber" },
+                  ].map((s) => (
+                    <div key={s.l} className="glass-card rounded-xl p-3 border border-border text-center">
+                      <div className="font-display font-bold text-lg"
+                        style={{ color: s.c === "violet" ? "var(--violet)" : s.c === "cyan" ? "var(--cyan)" : s.c === "emerald" ? "#10b981" : "#f59e0b" }}>
+                        {s.v}
+                      </div>
+                      <div className="text-xs text-fg-subtle">{s.l}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Chat */}
+                <div className="glass-card rounded-xl border border-border p-4 space-y-2.5">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-semibold text-fg-subtle uppercase tracking-wider">ClinicBot Live</span>
+                    <Badge variant="success" dot size="sm">Active</Badge>
+                  </div>
+                  {[
+                    { r: "user", t: "I need to book with Dr. Ahmed" },
+                    { r: "bot", t: "Available Friday 10 AM. Your name and phone?" },
+                    { r: "user", t: "Sara, 0301-1234567" },
+                    { r: "bot", t: "✅ Booked! Reminder will be sent via WhatsApp." },
+                  ].map((m, i) => (
+                    <div key={i} className={`flex ${m.r === "user" ? "justify-end" : "justify-start"}`}>
+                      <div className={`px-3 py-1.5 rounded-xl text-xs max-w-[80%] leading-relaxed ${
+                        m.r === "user" ? "bg-violet text-white" : "bg-surface border border-border text-fg-muted"
+                      }`}>{m.t}</div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
 
-            {/* Dashboard preview content */}
-            <div className="p-6 bg-bg min-h-48">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
-                {[
-                  { label: "Today's Appointments", value: "24", color: "violet" },
-                  { label: "New Leads", value: "8", color: "cyan" },
-                  { label: "Confirmed", value: "19", color: "emerald" },
-                  { label: "Pending", value: "5", color: "amber" },
-                ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="glass-card rounded-xl p-4 border border-border"
-                  >
-                    <div
-                      className="text-2xl font-display font-bold mb-1"
-                      style={{
-                        color:
-                          stat.color === "violet"
-                            ? "var(--violet)"
-                            : stat.color === "cyan"
-                            ? "var(--cyan)"
-                            : stat.color === "emerald"
-                            ? "#10b981"
-                            : "#f59e0b",
-                      }}
-                    >
-                      {stat.value}
-                    </div>
-                    <div className="text-xs text-fg-subtle">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
+            {/* Floating notification badges */}
+            <FloatBadge icon={CheckCircle} text="Appointment confirmed" color="emerald"
+              className="-top-4 -left-6 animate-float-b" delay={1.0} />
+            <FloatBadge icon={Calendar} text="4 slots available" color="violet"
+              className="top-1/3 -right-8 animate-float-a" delay={1.15} />
+            <FloatBadge icon={MessageCircle} text="WhatsApp reminder sent" color="cyan"
+              className="-bottom-3 left-4 animate-float-b" delay={1.3} />
+            <FloatBadge icon={Users} text="New lead captured" color="violet"
+              className="bottom-1/4 -right-6 animate-float-a" delay={1.45} />
+          </motion.div>
+        </div>
+      </div>
 
-              {/* Fake chat conversation */}
-              <div className="glass-card rounded-xl border border-border p-4 space-y-3">
-                <div className="text-xs font-semibold text-fg-subtle uppercase tracking-wider mb-3">
-                  Live Chat — ClinicBot
+      {/* Mobile visual — simplified card below content */}
+      <motion.div
+        className="lg:hidden w-full max-w-md mx-auto px-4 pb-16 relative z-10"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.7, duration: 0.6 }}
+      >
+        <div className="glass-card rounded-2xl border border-border overflow-hidden shadow-md">
+          <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-elevated">
+            <div className="flex gap-1.5">
+              <div className="w-2 h-2 rounded-full bg-red-400" />
+              <div className="w-2 h-2 rounded-full bg-yellow-400" />
+              <div className="w-2 h-2 rounded-full bg-green-400" />
+            </div>
+            <span className="text-xs text-fg-subtle ml-2 font-mono">app.tapzero.ai</span>
+            <div className="ml-auto flex items-center gap-1">
+              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-xs text-fg-subtle">Live</span>
+            </div>
+          </div>
+          <div className="p-4">
+            <div className="grid grid-cols-2 gap-2 mb-3">
+              {[
+                { v: "24", l: "Today's Appointments", c: "violet" },
+                { v: "8", l: "New Leads", c: "cyan" },
+              ].map((s) => (
+                <div key={s.l} className="glass-card rounded-xl p-3 border border-border">
+                  <div className="font-display font-bold text-xl" style={{ color: `var(--${s.c})` }}>{s.v}</div>
+                  <div className="text-xs text-fg-subtle">{s.l}</div>
                 </div>
-                {[
-                  { role: "user", text: "Hi, I need to book an appointment with Dr. Ahmed" },
-                  { role: "bot", text: "Of course! Dr. Ahmed is available tomorrow at 10:00 AM. Shall I confirm?" },
-                  { role: "user", text: "Yes please, my name is Sara, 0301-1234567" },
-                  { role: "bot", text: "✅ Confirmed! Appointment with Dr. Ahmed on Friday at 10:00 AM. Reminder will be sent via WhatsApp." },
-                ].map((msg, i) => (
-                  <div
-                    key={i}
-                    className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-                  >
-                    <div
-                      className={`max-w-xs px-3 py-2 rounded-xl text-xs leading-relaxed ${
-                        msg.role === "user"
-                          ? "bg-violet text-white"
-                          : "bg-surface border border-border text-fg-muted"
-                      }`}
-                    >
-                      {msg.text}
-                    </div>
-                  </div>
-                ))}
+              ))}
+            </div>
+            <div className="glass-card rounded-xl border border-border p-3 space-y-2">
+              <div className="flex justify-end">
+                <div className="bg-violet text-white text-xs px-3 py-1.5 rounded-xl max-w-[75%]">
+                  I need to book with Dr. Ahmed
+                </div>
+              </div>
+              <div className="flex justify-start">
+                <div className="bg-surface border border-border text-fg-muted text-xs px-3 py-1.5 rounded-xl max-w-[75%]">
+                  ✅ Booked! Reminder sent via WhatsApp.
+                </div>
               </div>
             </div>
           </div>
+        </div>
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-1.5 z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+      >
+        <motion.div
+          className="w-5 h-8 rounded-full border border-border flex items-start justify-center pt-1.5"
+          animate={{ opacity: [0.4, 1, 0.4] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <motion.div
+            className="w-1 h-2 rounded-full bg-violet"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          />
         </motion.div>
-      </div>
+        <span className="text-xs text-fg-subtle">Scroll</span>
+      </motion.div>
     </section>
   );
 }
