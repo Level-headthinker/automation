@@ -1,14 +1,14 @@
 // ═══════════════════════════════════════════════════════════
-// TAPZERO — All site copy, data, and config in one place.
+// RAAHNEX — All site copy, data, and config in one place.
 // Update brand name, colors, or content here — everywhere updates.
 // ═══════════════════════════════════════════════════════════
 
 export const BRAND = {
-  name: "Tapzero",
-  tagline: "Zero Friction. Total Automation.",
+  name: "Raahnex",
+  tagline: "The AI Agency for the Next Generation of Service Businesses.",
   description:
-    "AI-powered operating systems for service businesses. Automate operations, capture every lead, and grow faster — with AI agents built for your industry.",
-  email: "hello@tapzero.ai",
+    "Raahnex builds AI-powered systems that automate operations for clinics, restaurants, and service businesses — so you focus on growth, not admin.",
+  email: "hello@raahnex.ai",
   phone: "+92 300 0000000",
   location: "Pakistan · Global",
   social: {
@@ -18,26 +18,73 @@ export const BRAND = {
   },
 } as const;
 
+// ── Navbar structure (used by the new mega-menu Navbar) ──────
 export const NAV_LINKS = [
-  { label: "Products", href: "/products" },
-  { label: "How It Works", href: "/#how-it-works" },
-  { label: "Industries", href: "/#industries" },
+  { label: "Work", href: "/products" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
 ] as const;
 
-export const SITE_URL = "https://tapzero.ai";
+// Services shown in the mega-menu dropdown
+export const NAV_SERVICES = [
+  {
+    icon: "Sparkles",
+    title: "UI/UX Design",
+    description: "Research-led product design from concept to handoff",
+    href: "/#contact",
+  },
+  {
+    icon: "Globe",
+    title: "Website Design",
+    description: "Brand-led, conversion-focused sites with motion",
+    href: "/#contact",
+  },
+  {
+    icon: "Code2",
+    title: "Web Development",
+    description: "Next.js, React, APIs & edge infrastructure",
+    href: "/#contact",
+  },
+  {
+    icon: "BrainCircuit",
+    title: "AI Development",
+    description: "LLM applications with evals, guardrails & monitoring",
+    href: "/#contact",
+  },
+  {
+    icon: "Bot",
+    title: "AI Agents",
+    description: "Voice and tool-using agents for workflow automation",
+    href: "/#contact",
+  },
+  {
+    icon: "Stethoscope",
+    title: "Healthcare Apps",
+    description: "AI-powered clinic management & patient automation",
+    href: "/products/clinicbot",
+  },
+] as const;
+
+export const SITE_URL = "https://raahnex.ai";
 
 // ── Hero ────────────────────────────────────────────────────
 
 export const HERO = {
-  badge: "AI Automation Platform",
-  headline: ["Zero Friction.", "Total Automation."],
+  badge: "RAAHNEX · AI AGENCY",
+  headline: "The AI Agency",
+  cyclingWords: [
+    "for Clinics",
+    "for Restaurants",
+    "for Real Estate",
+    "for Service Businesses",
+    "that Never Sleeps",
+    "that Drives Growth",
+  ],
   subheadline:
-    "We build AI-powered systems that automate operations for clinics, restaurants, and service businesses — so you focus on growth, not admin.",
-  cta_primary: { label: "Book a Free Demo", href: "#contact" },
-  cta_secondary: { label: "See Our Products", href: "#products" },
-  trust_note: "No setup fees. Cancel anytime. Serving businesses across Pakistan.",
+    "We build AI-powered systems that automate operations, capture every lead, and scale your service business — faster than you thought possible.",
+  cta_primary: { label: "Start Your Project", href: "#contact" },
+  cta_secondary: { label: "View Our Work", href: "/products" },
+  trust_note: "Trusted by service businesses across Pakistan and beyond.",
 } as const;
 
 // ── Trust Bar ───────────────────────────────────────────────
@@ -82,7 +129,7 @@ export const PROBLEMS = [
 // ── Solution ────────────────────────────────────────────────
 
 export const SOLUTION = {
-  headline: "Introducing the Tapzero Platform",
+  headline: "Introducing the Raahnex Platform",
   subheadline:
     "One AI platform. Multiple industry solutions. Your business runs itself.",
   points: [
@@ -396,7 +443,7 @@ export const CTA_SECTION = {
   badge: "Get Started Today",
   headline: "Ready to Automate Your Business?",
   subheadline:
-    "Book a free 30-minute demo and see how Tapzero can transform your operations starting this week.",
+    "Book a free 30-minute demo and see how Raahnex can transform your operations starting this week.",
   form_note: "No commitment. No setup fees. We respond within 2 hours.",
 } as const;
 
@@ -434,7 +481,7 @@ export const CASE_STUDIES = [
     metric: "92%",
     metricLabel: "patient satisfaction",
     description:
-      "A 5-branch specialist centre consolidated all appointment management into one Tapzero dashboard. Staff hours spent on admin dropped by 60% in the first month.",
+      "A 5-branch specialist centre consolidated all appointment management into one Raahnex dashboard. Staff hours spent on admin dropped by 60% in the first month.",
     gradient: "from-cyan-600 to-blue-800",
   },
   {
@@ -457,7 +504,7 @@ export const CASE_STUDIES = [
 export const TESTIMONIALS = [
   {
     quote:
-      "Before Tapzero, I was personally answering WhatsApp messages at 11pm. Now ClinicBot handles everything — bookings, reminders, follow-ups. I just open the dashboard in the morning.",
+      "Before Raahnex, I was personally answering WhatsApp messages at 11pm. Now ClinicBot handles everything — bookings, reminders, follow-ups. I just open the dashboard in the morning.",
     name: "Dr. Ayesha Malik",
     role: "GP, City Clinic Karachi",
     initials: "AM",

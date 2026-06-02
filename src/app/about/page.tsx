@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/Button";
 import { BRAND } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "About Tapzero",
+  title: "About Raahnex",
   description:
-    "Tapzero builds AI-powered automation systems for service businesses across Pakistan and beyond. Learn about our mission, vision, and the team behind the platform.",
+    "Raahnex builds AI-powered automation systems for service businesses across Pakistan and beyond. Learn about our mission, vision, and the team behind the platform.",
 };
 
 const VALUES = [
@@ -37,7 +37,7 @@ const VALUES = [
     icon: Zap,
     title: "Speed Over Perfection",
     description:
-      "A clinic running on Tapzero today, with real patients being served, is more valuable than a perfect system released in 18 months. We build, ship, and improve continuously.",
+      "A clinic running on Raahnex today, with real patients being served, is more valuable than a perfect system released in 18 months. We build, ship, and improve continuously.",
   },
 ];
 
@@ -45,7 +45,7 @@ const MILESTONES = [
   { year: "2025", label: "Company founded", desc: "Started with a simple question: why are clinics still booking appointments manually?" },
   { year: "2025 Q4", label: "ClinicBot v1 launched", desc: "First AI chatbot deployed for a solo GP clinic in Karachi. 24 appointments booked on day one." },
   { year: "2026 Q1", label: "Multi-branch support", desc: "Expanded ClinicBot to support clinics with multiple branches and role-based staff access." },
-  { year: "2026 Q2", label: "Platform launch", desc: "Tapzero platform launched — the umbrella company for multiple industry AI products." },
+  { year: "2026 Q2", label: "Platform launch", desc: "Raahnex platform launched — the umbrella company for multiple industry AI products." },
   { year: "2026+", label: "What's next", desc: "Restaurant, real estate, and support automation. Pakistan, then MENA, then global." },
 ];
 
@@ -56,7 +56,7 @@ export default function AboutPage() {
       <main className="flex-1">
         {/* Hero */}
         <PageHero
-          label="About Tapzero"
+          label="About Raahnex"
           title={
             <>
               We Build AI That Works<br />
@@ -79,7 +79,7 @@ export default function AboutPage() {
                   The largest hospital chains in Pakistan have IT departments. They have custom ERP systems, software budgets, and dedicated developers. A solo clinic in Faisalabad has none of that.
                 </p>
                 <p className="text-fg-muted leading-relaxed mb-6">
-                  Tapzero exists to close that gap. We build AI-powered operating systems that give a solo GP the same capabilities as a 500-bed hospital — at a price that makes business sense.
+                  Raahnex exists to close that gap. We build AI-powered operating systems that give a solo GP the same capabilities as a 500-bed hospital — at a price that makes business sense.
                 </p>
                 <p className="text-fg-muted leading-relaxed">
                   We started with clinics because the problem was most acute. Every day, thousands of Pakistani patients try to book an appointment and fail — not because the clinic doesn't have capacity, but because no one answered the phone. That is a systems problem. We fix systems problems.
@@ -121,7 +121,7 @@ export default function AboutPage() {
                 <Zap className="w-5 h-5 text-white" fill="white" />
               </div>
               <div className="text-left">
-                <div className="font-semibold text-fg text-sm">Tapzero Team</div>
+                <div className="font-semibold text-fg text-sm">Raahnex Team</div>
                 <div className="text-xs text-fg-subtle">Pakistan · Building for the world</div>
               </div>
             </div>
@@ -221,7 +221,7 @@ export default function AboutPage() {
               Want to Work With Us?
             </h2>
             <p className="text-fg-muted mb-8">
-              Whether you&apos;re a clinic owner, a healthcare investor, or someone who wants to bring Tapzero to a new market — we&apos;d love to hear from you.
+              Whether you&apos;re a clinic owner, a healthcare investor, or someone who wants to bring Raahnex to a new market — we&apos;d love to hear from you.
             </p>
             <Button size="lg" asChild>
               <Link href="/#contact">

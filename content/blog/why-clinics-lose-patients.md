@@ -76,4 +76,4 @@ If your clinic is still relying entirely on manual call handling and informal Wh
 
 ---
 
-*Tapzero builds AI-powered automation systems for clinics across Pakistan. [See how ClinicBot works](/products/clinicbot) or [book a free demo](/#contact) to see it in action for your practice.*
+*Raahnex builds AI-powered automation systems for clinics across Pakistan. [See how ClinicBot works](/products/clinicbot) or [book a free demo](/#contact) to see it in action for your practice.*

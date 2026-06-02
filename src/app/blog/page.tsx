@@ -8,7 +8,7 @@ import { BlogCard } from "@/components/blog/BlogCard";
 export const metadata: Metadata = {
   title: "Blog — AI Automation Insights",
   description:
-    "Insights on AI automation, clinic management, and building better service businesses. Written by the Tapzero team.",
+    "Insights on AI automation, clinic management, and building better service businesses. Written by the Raahnex team.",
 };
 
 export default function BlogPage() {

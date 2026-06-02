@@ -18,36 +18,38 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "Tapzero — Zero Friction. Total Automation.",
-    template: "%s | Tapzero",
+    default: "Raahnex — The AI Agency for Service Businesses",
+    template: "%s | Raahnex",
   },
   description:
-    "AI-powered operating systems for service businesses. Automate operations, capture every lead, and grow faster with AI agents built for clinics, restaurants, real estate, and more.",
+    "Raahnex builds AI-powered systems that automate operations for clinics, restaurants, and service businesses. Capture every lead and scale faster with AI agents, voice automation, and WhatsApp integration.",
   keywords: [
+    "AI agency",
     "AI chatbot",
     "clinic automation",
     "WhatsApp AI",
     "AI appointment booking",
     "business automation Pakistan",
     "AI receptionist",
-    "ClinicBot",
+    "AI agents",
+    "Raahnex",
   ],
-  authors: [{ name: "Tapzero" }],
-  creator: "Tapzero",
+  authors: [{ name: "Raahnex" }],
+  creator: "Raahnex",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://tapzero.ai",
-    title: "Tapzero — Zero Friction. Total Automation.",
+    url: "https://raahnex.ai",
+    title: "Raahnex — The AI Agency for Service Businesses",
     description:
-      "AI-powered operating systems for clinics, restaurants, and service businesses.",
-    siteName: "Tapzero",
+      "AI-powered systems that automate operations for clinics, restaurants, and service businesses.",
+    siteName: "Raahnex",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tapzero — Zero Friction. Total Automation.",
+    title: "Raahnex — The AI Agency for Service Businesses",
     description:
-      "AI-powered operating systems for clinics, restaurants, and service businesses.",
+      "AI-powered systems that automate operations for clinics, restaurants, and service businesses.",
   },
   robots: {
     index: true,
