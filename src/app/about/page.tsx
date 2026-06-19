@@ -72,7 +72,7 @@ export default function AboutPage() {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <SectionLabel className="mb-5">Our Mission</SectionLabel>
-                <h2 className="font-display font-bold text-fg mb-6" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}>
+                <h2 className="font-display font-bold text-fg mb-6" style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}>
                   Make Automation Accessible to Every Service Business — Not Just Enterprises
                 </h2>
                 <p className="text-fg-muted leading-relaxed mb-6">
@@ -133,7 +133,7 @@ export default function AboutPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-14">
               <SectionLabel className="mb-4">Our Values</SectionLabel>
-              <h2 className="font-display font-bold text-fg" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)" }}>
+              <h2 className="font-display font-bold text-fg" style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}>
                 What We Believe
               </h2>
             </div>
@@ -159,7 +159,7 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-14">
               <SectionLabel variant="cyan" className="mb-4">Journey</SectionLabel>
-              <h2 className="font-display font-bold text-fg" style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)" }}>
+              <h2 className="font-display font-bold text-fg" style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}>
                 How We Got Here
               </h2>
             </div>

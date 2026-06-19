@@ -21,7 +21,7 @@ export function Testimonials() {
           <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ delay: 0.1 }}
             className="font-display font-bold text-fg"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}>
+            style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}>
             Doctors Who <GradientText>Chose Automation</GradientText>
           </motion.h2>
         </div>
@@ -42,8 +42,8 @@ export function Testimonials() {
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{
                   background: t.color === "violet"
-                    ? "radial-gradient(ellipse 80% 60% at 0% 0%, rgba(124,58,237,0.06), transparent)"
-                    : "radial-gradient(ellipse 80% 60% at 100% 0%, rgba(6,182,212,0.06), transparent)"
+                    ? "radial-gradient(ellipse 80% 60% at 0% 0%, rgba(0,102,204,0.06), transparent)"
+                    : "radial-gradient(ellipse 80% 60% at 100% 0%, rgba(14,165,233,0.06), transparent)"
                 }} />
 
               {/* Stars */}

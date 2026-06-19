@@ -50,13 +50,13 @@ export function ParticleNetwork({
 
     // ── Dot factory ───────────────────────────────────────────
     const mkDot = (): Dot => {
-      // Mix of violet, cyan, light-violet, and rare white sparks
+      // LangChain blues — electric blue, sky blue, light blue sparks
       const roll = Math.random();
       let r: number, g: number, b: number;
-      if      (roll < 0.42) { r = 124; g = 58;  b = 237; }  // violet
-      else if (roll < 0.76) { r = 6;   g = 182; b = 212; }  // cyan
-      else if (roll < 0.92) { r = 167; g = 139; b = 250; }  // violet-light
-      else                  { r = 200; g = 220; b = 255; }  // white-blue spark
+      if      (roll < 0.42) { r = 0;   g = 102; b = 204; }  // electric blue
+      else if (roll < 0.76) { r = 14;  g = 165; b = 233; }  // sky blue
+      else if (roll < 0.92) { r = 59;  g = 158; b = 255; }  // light blue
+      else                  { r = 120; g = 180; b = 255; }  // pale blue spark
 
       return {
         x: Math.random() * W(),

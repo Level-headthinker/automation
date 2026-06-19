@@ -75,7 +75,7 @@ export function Footer() {
           {/* Brand col */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2.5 mb-4 group w-fit">
-              <div className="w-8 h-8 rounded-lg bg-violet flex items-center justify-center shadow-[0_0_12px_rgba(124,58,237,0.3)]">
+              <div className="w-8 h-8 rounded-lg bg-violet flex items-center justify-center shadow-[0_0_12px_rgba(0,102,204,0.3)]">
                 <Zap className="w-4 h-4 text-white" fill="white" />
               </div>
               <span className="font-display font-bold text-xl text-fg tracking-tight">

@@ -21,7 +21,7 @@ export function HowItWorks() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 50% 40% at 50% 50%, rgba(124,58,237,0.05), transparent 70%)",
+            "radial-gradient(ellipse 50% 40% at 50% 50%, rgba(0,102,204,0.05), transparent 70%)",
         }}
       />
 
@@ -42,7 +42,7 @@ export function HowItWorks() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ delay: 0.1 }}
             className="font-display font-bold text-fg"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+            style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}
           >
             Up and Running in{" "}
             <GradientText>Three Simple Steps</GradientText>
@@ -87,7 +87,7 @@ export function HowItWorks() {
                           ? "var(--violet-muted)"
                           : "var(--cyan-muted)",
                         boxShadow: isMiddle
-                          ? "0 0 30px rgba(124,58,237,0.3)"
+                          ? "0 0 30px rgba(0,102,204,0.3)"
                           : "none",
                       }}
                     >

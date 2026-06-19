@@ -64,7 +64,7 @@ export function Metrics() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(124,58,237,0.06), transparent 70%)",
+            "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(0,102,204,0.06), transparent 70%)",
         }}
       />
 
@@ -84,7 +84,7 @@ export function Metrics() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ delay: 0.1 }}
             className="font-display font-bold text-fg"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+            style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}
           >
             Numbers That Speak for Themselves
           </motion.h2>

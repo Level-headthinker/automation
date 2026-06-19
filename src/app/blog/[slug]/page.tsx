@@ -46,7 +46,7 @@ export default async function BlogPostPage({ params }: Props) {
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(124,58,237,0.08), transparent 70%)",
+                "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(0,102,204,0.08), transparent 70%)",
             }}
           />
           <div className="absolute inset-0 grid-pattern opacity-20" />

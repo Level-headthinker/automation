@@ -10,13 +10,13 @@ export default function NotFound() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 60% 40% at 50% 40%, rgba(124,58,237,0.08), transparent 70%)",
+            "radial-gradient(ellipse 60% 40% at 50% 40%, rgba(0,102,204,0.08), transparent 70%)",
         }}
       />
       <div className="absolute inset-0 grid-pattern opacity-20" />
 
       <div className="relative">
-        <div className="w-16 h-16 rounded-2xl bg-violet flex items-center justify-center mx-auto mb-8 shadow-[0_0_30px_rgba(124,58,237,0.4)]">
+        <div className="w-16 h-16 rounded-2xl bg-violet flex items-center justify-center mx-auto mb-8 shadow-[0_0_30px_rgba(0,102,204,0.4)]">
           <Zap className="w-8 h-8 text-white" fill="white" />
         </div>
         <div

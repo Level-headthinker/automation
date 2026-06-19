@@ -62,9 +62,9 @@ export function CTA() {
       {/* BG glows */}
       <ParticleField count={22} zone="full" className="opacity-50" />
       <div aria-hidden className="absolute top-0 left-1/4 w-96 h-96 rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at center, rgba(124,58,237,0.1), transparent 70%)", filter: "blur(80px)" }} />
+        style={{ background: "radial-gradient(ellipse at center, rgba(0,102,204,0.1), transparent 70%)", filter: "blur(80px)" }} />
       <div aria-hidden className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at center, rgba(6,182,212,0.08), transparent 70%)", filter: "blur(80px)" }} />
+        style={{ background: "radial-gradient(ellipse at center, rgba(14,165,233,0.08), transparent 70%)", filter: "blur(80px)" }} />
       <div className="absolute inset-0 dot-pattern opacity-[0.25] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,7 +77,7 @@ export function CTA() {
           >
             <SectionLabel className="mb-6">{CTA_SECTION.badge}</SectionLabel>
             <h2 className="font-display font-bold text-fg mb-6 leading-tight"
-              style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}>
+              style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}>
               {CTA_SECTION.headline.split("?")[0]}?{" "}
               <span className="gradient-text">Let&apos;s Talk.</span>
             </h2>

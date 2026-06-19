@@ -43,7 +43,7 @@ export function Products() {
           <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }} transition={{ delay: 0.1 }}
             className="font-display font-bold text-fg mb-4"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}>
+            style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}>
             One Platform. <GradientText>Every Industry.</GradientText>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ export function Products() {
                   "flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-sm font-medium",
                   "transition-all duration-250 relative",
                   active === i
-                    ? "text-white shadow-[0_0_20px_rgba(124,58,237,0.4)]"
+                    ? "text-white shadow-[0_0_20px_rgba(0,102,204,0.4)]"
                     : "bg-bg border border-border text-fg-muted hover:text-fg hover:border-border-strong"
                 )}
               >
@@ -101,7 +101,7 @@ export function Products() {
             className={cn(
               "glass-card rounded-2xl border overflow-hidden",
               product.status === "live"
-                ? "border-violet/30 shadow-[0_0_60px_rgba(124,58,237,0.12)] electric-border"
+                ? "border-violet/30 shadow-[0_0_60px_rgba(0,102,204,0.12)] electric-border"
                 : "glow-card border-border"
             )}
           >
@@ -175,8 +175,8 @@ export function Products() {
               )}
                 style={{
                   background: isViolet
-                    ? "radial-gradient(ellipse at 60% 40%, rgba(124,58,237,0.08), transparent 70%)"
-                    : "radial-gradient(ellipse at 60% 40%, rgba(6,182,212,0.08), transparent 70%)",
+                    ? "radial-gradient(ellipse at 60% 40%, rgba(0,102,204,0.08), transparent 70%)"
+                    : "radial-gradient(ellipse at 60% 40%, rgba(14,165,233,0.08), transparent 70%)",
                 }}
               >
                 {/* Decorative circles */}

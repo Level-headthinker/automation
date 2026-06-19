@@ -13,7 +13,7 @@ export function Pricing() {
     <section id="pricing" className="py-20 sm:py-28 relative overflow-hidden">
       {/* BG */}
       <div aria-hidden className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(124,58,237,0.05), transparent 70%)" }} />
+        style={{ background: "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(0,102,204,0.05), transparent 70%)" }} />
       <div className="absolute inset-0 dot-pattern opacity-20 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,7 +27,7 @@ export function Pricing() {
           <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ delay: 0.1 }}
             className="font-display font-bold text-fg mb-4"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}>
+            style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}>
             <GradientText>Transparent</GradientText> Pricing. No Surprises.
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +50,7 @@ export function Pricing() {
               className={cn(
                 "relative rounded-2xl border flex flex-col overflow-hidden",
                 plan.highlighted
-                  ? "border-violet/40 shadow-[0_0_60px_rgba(124,58,237,0.2)] bg-violet-muted"
+                  ? "border-violet/40 shadow-[0_0_60px_rgba(0,102,204,0.2)] bg-violet-muted"
                   : "glass-card border-border"
               )}
             >

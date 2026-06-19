@@ -89,14 +89,14 @@ export function Hero() {
           className="absolute top-0 left-1/2 -translate-x-1/2"
           style={{
             width: "900px", height: "600px",
-            background: "radial-gradient(ellipse 50% 60% at 50% 0%, rgba(124,58,237,0.2), transparent 70%)",
+            background: "radial-gradient(ellipse 50% 60% at 50% 0%, rgba(0,102,204,0.2), transparent 70%)",
             filter: "blur(60px)",
           }}
           animate={{ scale: [1, 1.06, 1], opacity: [0.7, 1, 0.7] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full"
-          style={{ background: "radial-gradient(ellipse at center, rgba(6,182,212,0.12), transparent 70%)", filter: "blur(80px)" }} />
+          style={{ background: "radial-gradient(ellipse at center, rgba(14,165,233,0.12), transparent 70%)", filter: "blur(80px)" }} />
       </div>
 
       {/* ── 4. Dot grid pattern ── */}
@@ -238,7 +238,7 @@ export function Hero() {
             {/* Glow behind dashboard */}
             <div className="absolute inset-0 rounded-3xl pointer-events-none"
               style={{
-                background: "radial-gradient(ellipse 70% 50% at 50% 65%, rgba(124,58,237,0.28), transparent)",
+                background: "radial-gradient(ellipse 70% 50% at 50% 65%, rgba(0,102,204,0.28), transparent)",
                 filter: "blur(36px)",
                 transform: "translateY(20px)",
               }} />
@@ -246,7 +246,7 @@ export function Hero() {
             {/* Main card */}
             <motion.div
               className="relative glass-card rounded-2xl border border-border overflow-hidden"
-              style={{ boxShadow: "0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(124,58,237,0.15)" }}
+              style={{ boxShadow: "0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,102,204,0.15)" }}
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -342,7 +342,7 @@ export function Hero() {
         transition={{ delay: 0.75, duration: 0.6 }}
       >
         <div className="glass-card rounded-2xl border border-border overflow-hidden"
-          style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(124,58,237,0.1)" }}>
+          style={{ boxShadow: "0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,102,204,0.1)" }}>
           <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-elevated">
             <div className="flex gap-1.5">
               {["bg-red-400","bg-yellow-400","bg-green-400"].map(c => (
@@ -389,7 +389,7 @@ export function Hero() {
       >
         <motion.div
           className="w-5 h-8 rounded-full border border-border flex items-start justify-center pt-1.5"
-          animate={{ borderColor: ["rgba(124,58,237,0.3)", "rgba(124,58,237,0.8)", "rgba(124,58,237,0.3)"] }}
+          animate={{ borderColor: ["rgba(0,102,204,0.3)", "rgba(0,102,204,0.8)", "rgba(0,102,204,0.3)"] }}
           transition={{ duration: 2.5, repeat: Infinity }}
         >
           <motion.div

@@ -21,7 +21,7 @@ export function Problem() {
         className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at center, rgba(6,182,212,0.05), transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(14,165,233,0.05), transparent 70%)",
           filter: "blur(60px)",
         }}
       />
@@ -44,7 +44,7 @@ export function Problem() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="font-display font-bold text-fg mb-4"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+            style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}
           >
             Running a Service Business{" "}
             <GradientText>Without Automation</GradientText>{" "}
@@ -94,7 +94,7 @@ export function Problem() {
         <div className="flex justify-center mb-16">
           <div className="flex flex-col items-center gap-2">
             <div className="w-px h-12 bg-gradient-to-b from-transparent via-border to-violet opacity-60" />
-            <div className="w-10 h-10 rounded-full bg-violet flex items-center justify-center shadow-[0_0_20px_rgba(124,58,237,0.4)]">
+            <div className="w-10 h-10 rounded-full bg-violet flex items-center justify-center shadow-[0_0_20px_rgba(0,102,204,0.4)]">
               <ArrowRight className="w-4 h-4 text-white rotate-90" />
             </div>
             <div className="w-px h-12 bg-gradient-to-b from-violet via-border to-transparent opacity-60" />
@@ -118,7 +118,7 @@ export function Problem() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="font-display font-bold text-fg mb-4"
-            style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
+            style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}
           >
             {SOLUTION.headline}
           </motion.h2>

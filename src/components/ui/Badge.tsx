@@ -25,8 +25,8 @@ export function Badge({
         },
         {
           "bg-surface border-border text-fg-muted": variant === "default",
-          "bg-violet-muted border-[rgba(124,58,237,0.25)] text-violet": variant === "violet",
-          "bg-cyan-muted border-[rgba(6,182,212,0.25)] text-cyan": variant === "cyan",
+          "bg-violet-muted border-[rgba(0,102,204,0.25)] text-violet": variant === "violet",
+          "bg-cyan-muted border-[rgba(14,165,233,0.25)] text-cyan": variant === "cyan",
           "bg-[rgba(16,185,129,0.1)] border-[rgba(16,185,129,0.25)] text-emerald-400 dark:text-emerald-400 text-emerald-600":
             variant === "success",
           "bg-transparent border-border text-fg-muted": variant === "outline",

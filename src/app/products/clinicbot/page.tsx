@@ -272,7 +272,7 @@ export default function ClinicBotPage() {
               <SectionLabel className="mb-4">Features</SectionLabel>
               <h2
                 className="font-display font-bold text-fg"
-                style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.75rem)" }}
+                style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}
               >
                 Everything Your Clinic Needs,{" "}
                 <GradientText>Nothing You Don&apos;t</GradientText>
@@ -317,7 +317,7 @@ export default function ClinicBotPage() {
               <SectionLabel variant="cyan" className="mb-4">Patient Journey</SectionLabel>
               <h2
                 className="font-display font-bold text-fg"
-                style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.75rem)" }}
+                style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}
               >
                 From First Message to{" "}
                 <GradientText>Confirmed Appointment</GradientText>
@@ -357,7 +357,7 @@ export default function ClinicBotPage() {
               <SectionLabel className="mb-4">FAQ</SectionLabel>
               <h2
                 className="font-display font-bold text-fg"
-                style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.5rem)" }}
+                style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}
               >
                 Questions About ClinicBot
               </h2>

@@ -161,7 +161,7 @@ export function Features() {
           <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }} transition={{ delay: 0.1 }}
             className="font-display font-bold text-fg mb-4"
-            style={{ fontSize: "clamp(2rem, 4vw, 3.25rem)" }}>
+            style={{ fontSize: "clamp(1.9rem, 3vw, 2.55rem)" }}>
             The Complete <GradientText>AI Stack</GradientText>
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }}

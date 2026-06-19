@@ -42,8 +42,8 @@ export function ParticleField({
 
       const roll = Math.random();
       const color =
-        roll < 0.38 ? "rgba(124,58,237,0.9)"    // violet
-        : roll < 0.72 ? "rgba(6,182,212,0.85)"   // cyan
+        roll < 0.38 ? "rgba(0,102,204,0.9)"    // violet
+        : roll < 0.72 ? "rgba(14,165,233,0.85)"   // cyan
         : roll < 0.88 ? "rgba(167,139,250,0.7)"  // violet-light
         : "rgba(255,255,255,0.45)";               // white spark
 

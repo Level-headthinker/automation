@@ -49,7 +49,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           // Variants
           {
             // Primary — gradient fill
-            "bg-violet text-white shadow-[0_0_20px_rgba(124,58,237,0.35)] hover:bg-violet-hover hover:shadow-[0_0_28px_rgba(124,58,237,0.5)] hover:scale-[1.02] active:scale-[0.98]":
+            "bg-violet text-white shadow-[0_0_20px_rgba(0,102,204,0.35)] hover:bg-violet-hover hover:shadow-[0_0_28px_rgba(0,102,204,0.5)] hover:scale-[1.02] active:scale-[0.98]":
               variant === "primary",
 
             // Secondary — surface fill

@@ -78,7 +78,7 @@ function ServicesMenu() {
                 <Link href={svc.href}
                   className="flex items-start gap-3 px-3.5 py-3 rounded-xl group hover:bg-elevated transition-colors duration-150">
                   <div className="w-8 h-8 rounded-lg bg-violet-muted flex items-center justify-center flex-shrink-0 mt-0.5
-                      group-hover:bg-violet group-hover:shadow-[0_0_12px_rgba(124,58,237,0.4)] transition-all duration-200">
+                      group-hover:bg-violet group-hover:shadow-[0_0_12px_rgba(0,102,204,0.4)] transition-all duration-200">
                     <Icon className="w-4 h-4 text-violet group-hover:text-white transition-colors duration-200" />
                   </div>
                   <div>
@@ -106,12 +106,12 @@ function ProductsMenu() {
       className="absolute top-full right-0 mt-3 w-[460px] z-50"
       style={{ transformOrigin: "top right" }}
     >
-      <div className="glass-card rounded-2xl border border-violet/25 shadow-[0_24px_80px_rgba(124,58,237,0.2),0_0_0_1px_rgba(124,58,237,0.1)] overflow-hidden"
+      <div className="glass-card rounded-2xl border border-violet/25 shadow-[0_24px_80px_rgba(0,102,204,0.2),0_0_0_1px_rgba(0,102,204,0.1)] overflow-hidden"
         style={{ backdropFilter: "blur(24px)", WebkitBackdropFilter: "blur(24px)" }}>
 
         {/* Header */}
         <div className="px-5 py-3.5 border-b border-border flex items-center justify-between"
-          style={{ background: "linear-gradient(135deg, rgba(124,58,237,0.08), rgba(6,182,212,0.04))" }}>
+          style={{ background: "linear-gradient(135deg, rgba(0,102,204,0.08), rgba(14,165,233,0.04))" }}>
           <div className="flex items-center gap-2">
             <div className="w-5 h-5 rounded bg-violet flex items-center justify-center">
               <Zap className="w-3 h-3 text-white" fill="white" />
@@ -164,7 +164,7 @@ function ProductsMenu() {
 
         {/* CTA footer */}
         <div className="px-5 py-4 border-t border-border"
-          style={{ background: "rgba(124,58,237,0.04)" }}>
+          style={{ background: "rgba(0,102,204,0.04)" }}>
           <Link href="/#contact"
             className="flex items-center gap-2 text-sm font-semibold text-violet hover:opacity-80 transition-opacity">
             <Zap className="w-3.5 h-3.5" fill="currentColor" />
@@ -231,8 +231,8 @@ export function Navbar() {
             <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
               <motion.div
                 className="w-8 h-8 rounded-lg bg-violet flex items-center justify-center"
-                style={{ boxShadow: "0 0 14px rgba(124,58,237,0.5)" }}
-                whileHover={{ scale: 1.08, boxShadow: "0 0 24px rgba(124,58,237,0.7)" }}
+                style={{ boxShadow: "0 0 14px rgba(0,102,204,0.5)" }}
+                whileHover={{ scale: 1.08, boxShadow: "0 0 24px rgba(0,102,204,0.7)" }}
                 transition={{ duration: 0.2 }}
               >
                 <Zap className="w-4 h-4 text-white" fill="white" />
@@ -307,8 +307,8 @@ export function Navbar() {
                   whileHover={{ scale: 1.02 }}
                   style={{
                     boxShadow: activeMenu === "products"
-                      ? "0 0 16px rgba(124,58,237,0.25), inset 0 0 10px rgba(124,58,237,0.05)"
-                      : "0 0 8px rgba(124,58,237,0.1)",
+                      ? "0 0 16px rgba(0,102,204,0.25), inset 0 0 10px rgba(0,102,204,0.05)"
+                      : "0 0 8px rgba(0,102,204,0.1)",
                   }}
                 >
                   <Zap className="w-3.5 h-3.5" />
