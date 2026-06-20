@@ -8,7 +8,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { LightRays } from "@/components/ui/LightRays";
-import { HERO } from "@/lib/constants";
+import { HeroMedia } from "@/components/ui/HeroMedia";
+import { HERO, HERO_MEDIA } from "@/lib/constants";
 
 // Lazy-load the canvas particle network so it never blocks first paint
 const ParticleNetwork = dynamic(
@@ -142,13 +143,19 @@ export function Hero() {
           </motion.p>
         </div>
 
-        {/* ── Dashboard showcase (centered, below copy) ── */}
+        {/* ── Hero visual (centered, below copy) ──
+            Shows your AI media clip/image when HERO_MEDIA.type !== "none",
+            otherwise the built-in dashboard mockup. */}
         <motion.div
           className="relative max-w-4xl mx-auto mt-14 sm:mt-16"
           initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
+          {HERO_MEDIA.type !== "none" ? (
+            <HeroMedia />
+          ) : (
+          <>
           {/* Glow behind */}
           <div className="absolute inset-0 rounded-3xl pointer-events-none"
             style={{
@@ -223,6 +230,8 @@ export function Hero() {
             className="-top-4 -left-4 animate-float-b" delay={1.0} />
           <FloatBadge icon={Users} text="New lead captured" color="cyan"
             className="-bottom-4 -right-4 animate-float-a" delay={1.2} />
+          </>
+          )}
         </motion.div>
       </div>
     </section>

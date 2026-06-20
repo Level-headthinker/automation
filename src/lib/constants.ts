@@ -88,6 +88,21 @@ export const HERO = {
   trust_note: "Trusted by service businesses across Pakistan and beyond.",
 } as const;
 
+// ── Hero media slot ─────────────────────────────────────────
+// Drop your AI-generated clip/image in /public/media/ and switch `type`.
+//   type: "none"  → shows the built-in dashboard mockup (default)
+//   type: "video" → looping muted MP4 (+ optional WebM) with poster
+//   type: "image" → a single still (png/jpg/webp/gif)
+// Then set the file paths below. Files live in the /public folder, so a
+// file at /public/media/hero.mp4 is referenced as "/media/hero.mp4".
+export const HERO_MEDIA = {
+  type: "none" as "none" | "video" | "image",
+  src: "/media/hero.mp4",        // mp4 (video) or image path
+  webm: "",                      // optional: "/media/hero.webm"
+  poster: "/media/hero-poster.jpg", // first-frame image shown while video loads
+  alt: "Raahnex AI automating a clinic's front desk",
+} as const;
+
 // ── Trust Bar ───────────────────────────────────────────────
 
 export const TRUST_STATS = [
