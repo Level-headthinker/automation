@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import { IntroReveal } from "@/components/layout/IntroReveal";
 import "./globals.css";
 
 const inter = Inter({
@@ -70,6 +71,7 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col antialiased">
         <ThemeProvider>
+          <IntroReveal />
           {children}
         </ThemeProvider>
         {/* Global cinematic grain overlay — fixed, non-interactive */}
