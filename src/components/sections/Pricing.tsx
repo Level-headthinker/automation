@@ -105,7 +105,7 @@ export function Pricing() {
 
                 {/* CTA */}
                 <Link
-                  href="/#contact"
+                  href="/demo"
                   className={cn(
                     "w-full flex items-center justify-center gap-2 py-3 px-5 rounded-xl text-sm font-semibold",
                     "transition-all duration-200 group",

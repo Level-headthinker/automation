@@ -63,7 +63,7 @@ function ServicesMenu() {
           <span className="text-xs font-semibold uppercase tracking-widest text-fg-subtle">
             What We Build
           </span>
-          <Link href="/#contact"
+          <Link href="/demo"
             className="text-xs font-semibold text-violet hover:opacity-80 transition-opacity flex items-center gap-1">
             Start a project <ArrowRight className="w-3 h-3" />
           </Link>
@@ -133,7 +133,7 @@ function ProductsMenu() {
             const isViolet = p.color === "violet";
             return (
               <motion.div key={p.id} custom={i} variants={itemVariants} initial="hidden" animate="visible">
-                <Link href={p.status === "live" ? "/products/clinicbot" : "/#contact"}
+                <Link href={p.status === "live" ? "/products/clinicbot" : "/demo"}
                   className="flex items-center gap-3.5 px-3.5 py-3 rounded-xl group hover:bg-elevated transition-colors duration-150">
                   <div className={cn(
                     "w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-200",
@@ -165,7 +165,7 @@ function ProductsMenu() {
         {/* CTA footer */}
         <div className="px-5 py-4 border-t border-border"
           style={{ background: "rgba(0,102,204,0.04)" }}>
-          <Link href="/#contact"
+          <Link href="/demo"
             className="flex items-center gap-2 text-sm font-semibold text-violet hover:opacity-80 transition-opacity">
             <Zap className="w-3.5 h-3.5" fill="currentColor" />
             Get early access to all products
@@ -347,7 +347,7 @@ export function Navbar() {
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
                 className="hidden sm:block">
                 <Button asChild size="sm" className="font-semibold">
-                  <Link href="/#contact">Start Your Project</Link>
+                  <Link href="/demo">Start Your Project</Link>
                 </Button>
               </motion.div>
 
@@ -398,7 +398,7 @@ export function Navbar() {
                   const Icon = PRODUCT_ICONS[p.icon];
                   return (
                     <Link key={p.id}
-                      href={p.status === "live" ? "/products/clinicbot" : "/#contact"}
+                      href={p.status === "live" ? "/products/clinicbot" : "/demo"}
                       onClick={() => setMobileOpen(false)}
                       className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-fg-muted hover:text-fg hover:bg-elevated transition-all duration-150">
                       <Icon className="w-4 h-4 text-cyan flex-shrink-0" />
@@ -421,7 +421,7 @@ export function Navbar() {
 
               <div className="pt-3 border-t border-border mt-1">
                 <Button asChild className="w-full">
-                  <Link href="/#contact" onClick={() => setMobileOpen(false)}>
+                  <Link href="/demo" onClick={() => setMobileOpen(false)}>
                     Start Your Project
                   </Link>
                 </Button>

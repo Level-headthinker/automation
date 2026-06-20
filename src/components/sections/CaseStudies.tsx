@@ -31,7 +31,7 @@ export function CaseStudies() {
             </motion.h2>
           </div>
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}>
-            <Link href="/#contact"
+            <Link href="/demo"
               className="flex items-center gap-2 text-sm font-medium text-violet hover:gap-3 transition-all duration-200 whitespace-nowrap">
               Get your case study <ArrowRight className="w-4 h-4" />
             </Link>

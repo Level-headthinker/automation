@@ -195,7 +195,7 @@ export default function ClinicBotPage() {
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 mb-6 w-full max-w-sm sm:max-w-none mx-auto">
             <Button size="lg" asChild className="w-full sm:w-auto">
-              <Link href="/#contact">
+              <Link href="/demo">
                 Book a Free Demo <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
@@ -310,8 +310,8 @@ export default function ClinicBotPage() {
           </div>
         </section>
 
-        {/* Patient Journey */}
-        <section className="py-16 sm:py-20">
+        {/* Patient Journey — dark band */}
+        <section className="dark bg-[#070b14] py-16 sm:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12 sm:mb-16">
               <SectionLabel variant="cyan" className="mb-4">Patient Journey</SectionLabel>
@@ -387,7 +387,7 @@ export default function ClinicBotPage() {
                   className="bg-white text-violet hover:bg-white/90 w-full sm:w-auto"
                   asChild
                 >
-                  <Link href="/#contact">Book My Free Demo</Link>
+                  <Link href="/demo">Book My Free Demo</Link>
                 </Button>
               </div>
             </div>

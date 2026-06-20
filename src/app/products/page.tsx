@@ -7,6 +7,9 @@ import { Footer } from "@/components/layout/Footer";
 import { PageHero, GradientText } from "@/components/ui/PageHero";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { HowItWorks } from "@/components/sections/HowItWorks";
+import { Industries } from "@/components/sections/Industries";
+import { CaseStudies } from "@/components/sections/CaseStudies";
 import { PRODUCTS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -89,12 +92,12 @@ export default function ProductsPage() {
                               </Link>
                             </Button>
                             <Button variant="secondary" asChild className="w-full sm:w-auto">
-                              <Link href="/#contact">Book Demo</Link>
+                              <Link href="/demo">Book Demo</Link>
                             </Button>
                           </>
                         ) : (
                           <Button variant="outline" asChild className="w-full sm:w-auto">
-                            <Link href="/#contact">Join Waitlist</Link>
+                            <Link href="/demo">Join Waitlist</Link>
                           </Button>
                         )}
                       </div>
@@ -129,6 +132,11 @@ export default function ProductsPage() {
             </div>
           </div>
         </section>
+
+        {/* Deeper detail — alternating dark/light bands like the homepage */}
+        <div className="dark bg-[#070b14]"><HowItWorks /></div>
+        <Industries />
+        <div className="dark bg-[#070b14]"><CaseStudies /></div>
       </main>
       <Footer />
     </>

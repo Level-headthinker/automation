@@ -68,7 +68,7 @@ function Newsletter() {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-surface">
+    <footer className="dark bg-[#070b14] border-t border-white/10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer */}
         <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12">
@@ -136,14 +136,43 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom Bar */}
+      </div>
+
+      {/* ── Giant outlined brand wordmark ── */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-4">
+        <div className="flex items-center gap-3 sm:gap-6 select-none pointer-events-none">
+          {/* logo mark — outlined */}
+          <Zap
+            className="flex-shrink-0 text-violet/25"
+            style={{ width: "clamp(2.5rem, 7vw, 6rem)", height: "clamp(2.5rem, 7vw, 6rem)" }}
+            strokeWidth={1.25}
+          />
+          {/* wordmark — stroked / ghost */}
+          <span
+            className="font-display font-black leading-none tracking-tighter whitespace-nowrap"
+            style={{
+              fontSize: "clamp(4rem, 19vw, 17rem)",
+              color: "transparent",
+              WebkitTextStroke: "1.5px rgba(96,160,255,0.18)",
+            }}
+          >
+            {BRAND.name}
+          </span>
+        </div>
+      </div>
+
+      {/* ── Bottom Bar ── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-fg-subtle">
-            © {new Date().getFullYear()} {BRAND.name}. All rights reserved.
-          </p>
-          <div className="flex items-center gap-2 text-xs text-fg-subtle">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <div className="flex items-center gap-2 text-sm text-fg-muted">
+            <span className="w-1.5 h-1.5 rounded-full bg-violet animate-pulse"
+              style={{ boxShadow: "0 0 8px var(--violet)" }} />
             All systems operational
+          </div>
+          <div className="flex items-center gap-6 text-sm">
+            <span className="text-fg-subtle">© {new Date().getFullYear()} {BRAND.name}</span>
+            <Link href="#" className="text-fg-muted hover:text-fg transition-colors">Privacy policy</Link>
+            <Link href="#" className="text-fg-muted hover:text-fg transition-colors">Terms of service</Link>
           </div>
         </div>
       </div>

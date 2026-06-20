@@ -157,12 +157,12 @@ export function Products() {
                         </Link>
                       </Button>
                       <Button variant="secondary" asChild className="w-full sm:w-auto">
-                        <Link href="/#contact">Book Demo</Link>
+                        <Link href="/demo">Book Demo</Link>
                       </Button>
                     </>
                   ) : (
                     <Button variant="outline" asChild className="w-full sm:w-auto">
-                      <Link href="/#contact">Join Waitlist</Link>
+                      <Link href="/demo">Join Waitlist</Link>
                     </Button>
                   )}
                 </div>

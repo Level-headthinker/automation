@@ -111,7 +111,7 @@ export default async function BlogPostPage({ params }: Props) {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button asChild size="lg">
-                <Link href="/#contact">
+                <Link href="/demo">
                   Book a Free Demo <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>

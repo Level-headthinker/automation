@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Stethoscope, UtensilsCrossed, Building2, HeadphonesIcon, Check } from "lucide-react";
 import { SectionLabel } from "@/components/ui/SectionLabel";
@@ -93,16 +94,12 @@ export function Industries() {
               <p className="text-fg-muted leading-relaxed mb-8">
                 {activeIndustry.description}
               </p>
-              <Button
-                onClick={() =>
-                  document
-                    .getElementById("contact")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                {activeIndustry.status === "live"
-                  ? "Get Started Free"
-                  : "Join the Waitlist"}
+              <Button asChild>
+                <Link href="/demo">
+                  {activeIndustry.status === "live"
+                    ? "Get Started Free"
+                    : "Join the Waitlist"}
+                </Link>
               </Button>
             </div>
 

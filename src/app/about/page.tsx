@@ -6,6 +6,8 @@ import { Footer } from "@/components/layout/Footer";
 import { PageHero, GradientText } from "@/components/ui/PageHero";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { Button } from "@/components/ui/Button";
+import { Problem } from "@/components/sections/Problem";
+import { Metrics } from "@/components/sections/Metrics";
 import { BRAND } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -214,6 +216,10 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Why we exist + credibility — dark bands like the homepage */}
+        <div className="dark bg-[#070b14]"><Problem /></div>
+        <Metrics />
+
         {/* CTA */}
         <section className="py-20">
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -224,7 +230,7 @@ export default function AboutPage() {
               Whether you&apos;re a clinic owner, a healthcare investor, or someone who wants to bring Raahnex to a new market — we&apos;d love to hear from you.
             </p>
             <Button size="lg" asChild>
-              <Link href="/#contact">
+              <Link href="/demo">
                 Get in Touch <ArrowRight className="w-4 h-4" />
               </Link>
             </Button>
