@@ -21,6 +21,7 @@ export const BRAND = {
 // ── Navbar structure (used by the new mega-menu Navbar) ──────
 export const NAV_LINKS = [
   { label: "Work", href: "/products" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" },
 ] as const;
@@ -31,31 +32,31 @@ export const NAV_SERVICES = [
     icon: "Sparkles",
     title: "UI/UX Design",
     description: "Research-led product design from concept to handoff",
-    href: "/#contact",
+    href: "/demo",
   },
   {
     icon: "Globe",
     title: "Website Design",
     description: "Brand-led, conversion-focused sites with motion",
-    href: "/#contact",
+    href: "/demo",
   },
   {
     icon: "Code2",
     title: "Web Development",
     description: "Next.js, React, APIs & edge infrastructure",
-    href: "/#contact",
+    href: "/demo",
   },
   {
     icon: "BrainCircuit",
     title: "AI Development",
     description: "LLM applications with evals, guardrails & monitoring",
-    href: "/#contact",
+    href: "/demo",
   },
   {
     icon: "Bot",
     title: "AI Agents",
     description: "Voice and tool-using agents for workflow automation",
-    href: "/#contact",
+    href: "/pricing",
   },
   {
     icon: "Stethoscope",
@@ -82,7 +83,7 @@ export const HERO = {
   ],
   subheadline:
     "We build AI-powered systems that automate operations, capture every lead, and scale your service business — faster than you thought possible.",
-  cta_primary: { label: "Start Your Project", href: "#contact" },
+  cta_primary: { label: "Start Your Project", href: "/demo" },
   cta_secondary: { label: "View Our Work", href: "/products" },
   trust_note: "Trusted by service businesses across Pakistan and beyond.",
 } as const;
@@ -161,7 +162,7 @@ export const PRODUCTS = [
       "Voice agent integration",
       "Real-time analytics",
     ],
-    href: "#contact",
+    href: "/demo",
   },
   {
     id: "restaurantbot",
@@ -180,7 +181,7 @@ export const PRODUCTS = [
       "Review & feedback capture",
       "Multi-outlet dashboard",
     ],
-    href: "#contact",
+    href: "/demo",
   },
   {
     id: "realestate",
@@ -199,7 +200,7 @@ export const PRODUCTS = [
       "Automated follow-ups",
       "Market insight reports",
     ],
-    href: "#contact",
+    href: "/demo",
   },
   {
     id: "supportdesk",
@@ -218,7 +219,7 @@ export const PRODUCTS = [
       "CSAT & analytics",
       "API integrations",
     ],
-    href: "#contact",
+    href: "/demo",
   },
 ] as const;
 
@@ -393,7 +394,7 @@ export const PRICING_PLANS = [
       "Email support",
     ],
     cta: "Get Started",
-    href: "#contact",
+    href: "/demo",
   },
   {
     name: "Professional",
@@ -413,7 +414,7 @@ export const PRICING_PLANS = [
       "Priority support",
     ],
     cta: "Start Free Trial",
-    href: "#contact",
+    href: "/demo",
   },
   {
     name: "Enterprise",
@@ -433,9 +434,130 @@ export const PRICING_PLANS = [
       "Onboarding & migration",
     ],
     cta: "Talk to Sales",
-    href: "#contact",
+    href: "/demo",
   },
 ] as const;
+
+// ── Per-service pricing (tabs on /pricing) ──────────────────
+
+export interface PricingTier {
+  name: string;
+  price: string;
+  currency: string;
+  period: string;
+  description: string;
+  highlighted: boolean;
+  features: string[];
+  cta: string;
+}
+
+export interface PricingService {
+  id: string;
+  label: string;
+  status: "live" | "coming-soon";
+  type: "tiers" | "calculator";
+  tagline: string;
+  tiers?: PricingTier[];
+}
+
+export const PRICING_SERVICES: PricingService[] = [
+  {
+    id: "clinicbot",
+    label: "ClinicBot",
+    status: "live",
+    type: "tiers",
+    tagline: "AI receptionist for clinics — bookings, enquiries & reminders.",
+    tiers: [
+      {
+        name: "Starter", price: "15,000", currency: "PKR", period: "/month",
+        description: "Solo clinics & small practices.", highlighted: false,
+        features: ["1 branch", "AI web chatbot", "WhatsApp integration", "Up to 200 appointments/mo", "Basic patient CRM", "Email support"],
+        cta: "Get Started",
+      },
+      {
+        name: "Professional", price: "35,000", currency: "PKR", period: "/month",
+        description: "Growing clinics needing full automation.", highlighted: true,
+        features: ["Up to 5 branches", "Web + WhatsApp chatbot", "Voice agent included", "Unlimited appointments", "Advanced CRM & billing", "Analytics dashboard", "Priority support"],
+        cta: "Start Free Trial",
+      },
+      {
+        name: "Enterprise", price: "Custom", currency: "", period: "tailored",
+        description: "Multi-branch chains & international clinics.", highlighted: false,
+        features: ["Unlimited branches", "All Pro features", "Custom AI training", "Dedicated manager", "API & integrations", "SLA + white-label"],
+        cta: "Talk to Sales",
+      },
+    ],
+  },
+  {
+    id: "restaurantbot",
+    label: "RestaurantBot",
+    status: "coming-soon",
+    type: "tiers",
+    tagline: "AI waiter & reservation system for restaurants.",
+    tiers: [
+      {
+        name: "Starter", price: "12,000", currency: "PKR", period: "/month",
+        description: "Single outlet, getting started.", highlighted: false,
+        features: ["1 outlet", "WhatsApp reservations", "Menu enquiries AI", "Up to 300 bookings/mo", "Basic customer CRM", "Email support"],
+        cta: "Join Waitlist",
+      },
+      {
+        name: "Professional", price: "30,000", currency: "PKR", period: "/month",
+        description: "Busy restaurants & small chains.", highlighted: true,
+        features: ["Up to 5 outlets", "WhatsApp + web ordering", "Loyalty programme", "Unlimited bookings", "Review management", "Analytics dashboard", "Priority support"],
+        cta: "Join Waitlist",
+      },
+      {
+        name: "Enterprise", price: "Custom", currency: "", period: "tailored",
+        description: "Multi-outlet chains.", highlighted: false,
+        features: ["Unlimited outlets", "All Pro features", "POS integrations", "Dedicated manager", "API access", "SLA + white-label"],
+        cta: "Talk to Sales",
+      },
+    ],
+  },
+  {
+    id: "support",
+    label: "SupportDesk AI",
+    status: "coming-soon",
+    type: "tiers",
+    tagline: "AI customer support across web, WhatsApp & voice.",
+    tiers: [
+      {
+        name: "Starter", price: "10,000", currency: "PKR", period: "/month",
+        description: "Small teams & startups.", highlighted: false,
+        features: ["1 channel", "AI knowledge base", "Up to 500 tickets/mo", "Email + chat support", "Basic analytics"],
+        cta: "Join Waitlist",
+      },
+      {
+        name: "Professional", price: "28,000", currency: "PKR", period: "/month",
+        description: "Scaling support operations.", highlighted: true,
+        features: ["All channels (web/WA/voice)", "Smart ticket routing", "Unlimited tickets", "CSAT analytics", "CRM integrations", "Priority support"],
+        cta: "Join Waitlist",
+      },
+      {
+        name: "Enterprise", price: "Custom", currency: "", period: "tailored",
+        description: "Large support centres.", highlighted: false,
+        features: ["Everything in Pro", "Custom AI training", "Dedicated manager", "Full API access", "SLA + white-label"],
+        cta: "Talk to Sales",
+      },
+    ],
+  },
+  {
+    id: "agents",
+    label: "Voice & Messaging",
+    status: "live",
+    type: "calculator",
+    tagline: "Pay for what you use — set your monthly calls & messages.",
+  },
+];
+
+// Usage-based rates for the Voice & Messaging calculator (PKR)
+export const USAGE_PRICING = {
+  currency: "PKR",
+  platformBase: 5000,          // monthly platform fee
+  voice:   { includedMinutes: 100,  perMinute: 20 },
+  message: { includedMessages: 1000, perMessage: 5 },
+} as const;
 
 // ── CTA / Contact ───────────────────────────────────────────
 
@@ -553,8 +675,8 @@ export const FOOTER_LINKS = {
   Company: [
     { label: "About", href: "/about" },
     { label: "How It Works", href: "/#how-it-works" },
-    { label: "Pricing", href: "/#pricing" },
-    { label: "Contact", href: "/#contact" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "Contact", href: "/demo" },
   ],
   Resources: [
     { label: "Blog", href: "/blog" },

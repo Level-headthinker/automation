@@ -200,7 +200,7 @@ export default function ClinicBotPage() {
               </Link>
             </Button>
             <Button size="lg" variant="secondary" asChild className="w-full sm:w-auto">
-              <Link href="/#pricing">See Pricing</Link>
+              <Link href="/pricing">See Pricing</Link>
             </Button>
           </div>
 
