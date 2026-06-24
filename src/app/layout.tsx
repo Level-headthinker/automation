@@ -69,7 +69,10 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${spaceGrotesk.variable}`}
     >
-      <body className="min-h-screen flex flex-col antialiased">
+      <body
+        className="min-h-screen flex flex-col antialiased"
+        suppressHydrationWarning
+      >
         <ThemeProvider>
           <IntroReveal />
           {children}

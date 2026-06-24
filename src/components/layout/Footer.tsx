@@ -171,8 +171,8 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-6 text-sm">
             <span className="text-fg-subtle">© {new Date().getFullYear()} {BRAND.name}</span>
-            <Link href="#" className="text-fg-muted hover:text-fg transition-colors">Privacy policy</Link>
-            <Link href="#" className="text-fg-muted hover:text-fg transition-colors">Terms of service</Link>
+            <Link href="/privacy" className="text-fg-muted hover:text-fg transition-colors">Privacy policy</Link>
+            <Link href="/terms" className="text-fg-muted hover:text-fg transition-colors">Terms of service</Link>
           </div>
         </div>
       </div>

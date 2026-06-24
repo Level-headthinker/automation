@@ -5,8 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Zap } from "lucide-react";
 import { BRAND } from "@/lib/constants";
 
-// Rotating "what Raahnex does" lines — so a slow load feels intentional,
-// not broken. The user always has something to read.
+// Rotating "what Raahnex does" lines — so the wait reads as intentional.
 const TIPS = [
   "Booking appointments while you sleep…",
   "Capturing every lead automatically…",
@@ -14,30 +13,45 @@ const TIPS = [
   "Putting your front desk on autopilot…",
 ];
 
-const HOLD_MS = 2400;   // how long the intro stays before fading out
-const C = "#3b9eff";    // brand blue on the dark intro
+const MIN_MS = 6000;    // always visible at least this long (never a flash)
+const MAX_MS = 30000;   // hard safety cap — never trap the user
+const C = "#3b9eff";    // brand blue
 
 export function IntroReveal() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);   // start visible = a real loader
   const [tip, setTip] = useState(0);
 
   useEffect(() => {
-    // Show once per browser session only
-    if (sessionStorage.getItem("raahnex_intro")) return;
-    sessionStorage.setItem("raahnex_intro", "1");
-
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    setShow(true);
-    // lock scroll while the intro is up
     document.body.style.overflow = "hidden";
 
-    const hold = reduce ? 600 : HOLD_MS;
-    const hide = setTimeout(() => setShow(false), hold);
-    const rotate = setInterval(() => setTip((p) => (p + 1) % TIPS.length), 700);
+    const start = Date.now();
+    let finished = false;
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      const wait = Math.max(0, MIN_MS - (Date.now() - start));
+      window.setTimeout(() => setShow(false), wait);
+    };
+
+    if (reduce) {
+      window.setTimeout(() => setShow(false), 500);
+    } else if (document.readyState === "complete") {
+      finish();                                   // page already loaded → respect MIN
+    } else {
+      window.addEventListener("load", finish, { once: true }); // dismiss when ready
+    }
+
+    const cap = window.setTimeout(finish, MAX_MS);            // safety
+    const skip = () => { if (Date.now() - start > MIN_MS) finish(); }; // click to skip
+    window.addEventListener("pointerdown", skip);
+    const rotate = window.setInterval(() => setTip((p) => (p + 1) % TIPS.length), 1600);
 
     return () => {
-      clearTimeout(hide);
-      clearInterval(rotate);
+      window.removeEventListener("load", finish);
+      window.removeEventListener("pointerdown", skip);
+      window.clearTimeout(cap);
+      window.clearInterval(rotate);
       document.body.style.overflow = "";
     };
   }, []);
@@ -69,7 +83,7 @@ export function IntroReveal() {
                   strokeLinecap="round" strokeDasharray="289"
                   initial={{ strokeDashoffset: 289, opacity: 0.3 }}
                   animate={{ strokeDashoffset: 0, opacity: 1 }}
-                  transition={{ duration: 1.1, ease: "easeInOut" }}
+                  transition={{ duration: 1.2, ease: "easeInOut" }}
                   style={{ filter: `drop-shadow(0 0 6px ${C})` }}
                 />
               </svg>
@@ -95,7 +109,7 @@ export function IntroReveal() {
               {BRAND.name}
             </motion.span>
 
-            {/* ── Rotating tip (the "not stuck" reassurance) ── */}
+            {/* ── Rotating tip ── */}
             <div className="h-5 mt-4 overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.p
@@ -120,9 +134,20 @@ export function IntroReveal() {
                 style={{ background: "var(--gradient)" }}
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
-                transition={{ duration: HOLD_MS / 1000, ease: "easeInOut" }}
+                transition={{ duration: MIN_MS / 1000, ease: "easeInOut" }}
               />
             </div>
+
+            {/* skip hint */}
+            <motion.p
+              className="mt-5 text-[10px] tracking-widest uppercase"
+              style={{ color: "#3d4f6b" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: MIN_MS / 1000 }}
+            >
+              Click to enter
+            </motion.p>
           </div>
         </motion.div>
       )}
